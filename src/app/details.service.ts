@@ -9,15 +9,14 @@ import { PREFIXED_KEY } from "api_key";
 })
 export class DetailsService {
   baseUrl = "https://api.themoviedb.org/3";
-  endpoint = "/movie/";
   adult = "&include_adult=false";
 
   constructor(private http: HttpClient) {}
 
-  getId(id): any {
+  getId(id, endpoint): any {
     //Observable<any> {
     return this.http.get<any>(
-      this.baseUrl + this.endpoint + id + PREFIXED_KEY + this.adult
+      this.baseUrl + endpoint + id + PREFIXED_KEY + this.adult
     );
   }
 }

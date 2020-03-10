@@ -1,0 +1,20 @@
+<h1>Details</h1>
+<ul *ngIf="details">
+  <li>
+    <p class="title">{{ details.name }}</p>
+    <p>{{ details.status }}</p>
+    <p>{{ details.tagline }}</p>
+    <p class="release_date">{{ details.release_date }}</p>
+    <p class="vote">{{ details.vote_average }}</p>
+    <p>{{ details.vote_count }}</p>
+    <img
+      class="poster"
+      src="https://image.tmdb.org/t/p/w500/{{ details.poster_path }}"
+      alt="{{ details.title }} poster"
+    />
+    <p class="site">{{ details.overview }}</p>
+  </li>
+  <li *ngFor="let genre of details['genres']">
+    <p>{{ genre["name"] }}</p>
+  </li>
+</ul>

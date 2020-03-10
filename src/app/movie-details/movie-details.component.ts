@@ -3,24 +3,25 @@ import { DetailsService } from "../details.service";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: "app-details",
-  templateUrl: "./details.component.html",
-  styleUrls: ["./details.component.scss"]
+  selector: "movie-details",
+  templateUrl: "./movie-details.component.html",
+  styleUrls: ["./movie-details.component.scss"]
 })
-export class DetailsComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit {
   constructor(
     private detailsService: DetailsService,
     private route: ActivatedRoute
   ) {}
   details;
+  endpoint = "/movie/";
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.handleId(id);
+    this.handleId(id, this.endpoint);
   }
 
-  handleId = id => {
-    this.detailsService.getId(id).subscribe(data => {
+  handleId = (id, endpoint) => {
+    this.detailsService.getId(id, endpoint).subscribe(data => {
       this.details = data;
       console.log(id);
       console.log(this.details);

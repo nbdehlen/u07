@@ -7,14 +7,18 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { TrendingComponent } from "./trending/trending.component";
 import { SearchComponent } from "./search/search.component";
-import { DetailsComponent } from "./details/details.component";
+import { MovieDetailsComponent } from "./movie-details/movie-details.component";
+import { TvDetailsComponent } from "./tv-details/tv-details.component";
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrendingComponent,
     SearchComponent,
-    DetailsComponent
+    MovieDetailsComponent,
+    TvDetailsComponent,
+    PersonDetailsComponent
   ],
   imports: [FormsModule, BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

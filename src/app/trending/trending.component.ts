@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpService } from "../http.service";
+import { ListService } from "../list.service";
 
 @Component({
   selector: "app-trending",
@@ -9,7 +9,7 @@ import { HttpService } from "../http.service";
 export class TrendingComponent implements OnInit {
   movies;
 
-  constructor(private _http: HttpService) {}
+  constructor(private _http: ListService) {}
 
   ngOnInit() {
     this._http.getTrending().subscribe(data => {
