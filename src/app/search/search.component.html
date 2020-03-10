@@ -1,0 +1,57 @@
+<form (ngSubmit)="handleSearch()">
+  <div class="search-option">
+    <div class="form-group">
+      <select
+        name="searchOption"
+        class="form-control"
+        id="searchOptions"
+        [(ngModel)]="searchOption"
+      >
+        <option *ngFor="let value of searchOptions" [value]="value">{{
+          value
+        }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <input
+      type="text"
+      class="form-control"
+      name="searchInput"
+      required
+      [(ngModel)]="searchInput"
+    />
+    <button type="submit">Search</button>
+  </div>
+</form>
+
+<div *ngIf="searches">
+  <tbody *ngFor="let search of searches['results']">
+    <ng-template [ngIf]="search.media_type == 'movie'" [ngIfElse]="tv">
+      <tr>
+        <td>
+          <img
+            src="https://image.tmdb.org/t/p/w45/{{ search.poster_path }}"
+            alt="No image"
+          />
+        </td>
+
+        <td>
+          <a routerLink="/movie/{{ search.id }}">
+            {{ search.title }}
+          </a>
+          {{ search.release_date | date: "yyyy" }}
+        </td>
+
+        <td>{{ search.vote_average }}</td>
+        <td>{{ search.media_type }}</td>
+        <td></td>
+      </tr>
+    </ng-template>
+
+    <ng-template #tv *ngIf="search.media_type == 'tv'">
+      <p>THIS IS TV</p>
+    </ng-template>
+  </tbody>
+</div>

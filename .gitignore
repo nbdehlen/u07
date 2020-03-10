@@ -44,3 +44,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# API Key
+api_key.ts
+
+# My todo for the project (I like the green)
+todo.css

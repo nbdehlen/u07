@@ -1,0 +1,16 @@
+<h1>Trending</h1>
+<ul *ngIf="movies">
+  <li *ngFor="let movie of movies['results']">
+    <a routerLink="/movie/{{ movie.id }}">
+      {{ movie.original_title }}
+    </a>
+
+    <p class="release_date">{{ movie.release_date }}</p>
+    <p class="vote">{{ movie.vote_average }}</p>
+    <img
+      class="poster"
+      src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}"
+      alt="{{ movie.title }} poster"
+    />
+  </li>
+</ul>
