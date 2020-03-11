@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
 import { PREFIXED_KEY } from "api_key";
 
 @Injectable({
@@ -11,7 +13,7 @@ export class ListService {
 
   constructor(private http: HttpClient) {}
 
-  getTrending() {
+  getTrending(): Observable<any> {
     return this.http.get(this.base_url + this.trending + PREFIXED_KEY);
   }
 }

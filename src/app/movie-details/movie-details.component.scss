@@ -1,0 +1,10 @@
+.toggleBtn {
+  color: rgb(73, 73, 245);
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(2, 2, 204);
+    text-decoration: underline solid blue;
+  }
+
+}

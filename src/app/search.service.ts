@@ -15,8 +15,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
-  getMovie(query, searchOption): any {
-    //Observable<any> {
+  getMovie(query, searchOption): Observable<any> {
     switch (searchOption) {
       case "All":
         this.endpoint = "/search/multi";

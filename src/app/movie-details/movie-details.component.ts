@@ -13,11 +13,16 @@ export class MovieDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   details;
+  cred;
   endpoint = "/movie/";
+  credits = "/credits";
+  showActorsAll = false;
+  actorsToggleBtn = "View All";
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
     this.handleId(id, this.endpoint);
+    this.getCred(id, this.endpoint, this.credits);
   }
 
   handleId = (id, endpoint) => {
@@ -27,4 +32,18 @@ export class MovieDetailsComponent implements OnInit {
       console.log(this.details);
     });
   };
+
+  getCred = (id, endpoint, credits) => {
+    this.detailsService.getCred(id, endpoint, credits).subscribe(cred => {
+      this.cred = cred;
+      console.log(this.cred);
+      console.log(this.cred.cast.length);
+    });
+  };
+
+  actorsToggle() {
+    this.showActorsAll == false
+      ? ((this.showActorsAll = true), (this.actorsToggleBtn = "View Less"))
+      : ((this.showActorsAll = false), (this.actorsToggleBtn = "View All"));
+  }
 }

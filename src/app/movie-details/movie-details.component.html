@@ -12,11 +12,32 @@
       src="https://image.tmdb.org/t/p/w500/{{ details.poster_path }}"
       alt="{{ details.title }} poster"
     />
-    <p class="site">{{ details.overview }}</p>
+    <p>{{ details.overview }}</p>
+    <p class="site">Runtime: {{ details.runtime }} min</p>
   </li>
   <li *ngFor="let genre of details['genres']">
     <p>{{ genre["name"] }}</p>
   </li>
   <p>Budget: {{ details.budget | currency }}</p>
   <p>Revenue: {{ details.revenue | currency }}</p>
+  <p *ngIf="cred.cast">
+    <strong>Actors</strong>
+  </p>
+
+  <div *ngIf="cred.cast.length > 9">
+    <div (click)="actorsToggle()" class="toggleBtn">
+      {{ actorsToggleBtn }}
+    </div>
+  </div>
+  <ng-template [ngIf]="!showActorsAll" [ngIfElse]="allActors">
+    <div *ngFor="let actor of cred.cast | slice: 0:10">
+      {{ actor.name }}
+    </div>
+  </ng-template>
+
+  <ng-template #allActors>
+    <div *ngFor="let actor of cred.cast">
+      {{ actor.name }}
+    </div>
+  </ng-template>
 </ul>

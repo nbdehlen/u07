@@ -25,6 +25,22 @@ export class PersonDetailsComponent implements OnInit {
       this.details = data;
       console.log(id);
       console.log(this.details);
+
+      if (!this.details.birthday) {
+        this.details.birthday = "Unknown";
+      }
+
+      this.details.gender = this.genderToString(this.details.gender);
     });
   };
+
+  genderToString(gender) {
+    if (gender == 0) {
+      return (gender = "Unknown");
+    } else if (gender == 1) {
+      return (gender = "Female");
+    } else if (gender == 2) {
+      return (gender = "Male");
+    }
+  }
 }

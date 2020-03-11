@@ -1,20 +1,41 @@
 <h1>Details</h1>
-<ul *ngIf="details">
-  <li>
-    <p class="title">{{ details.name }}</p>
-    <p>{{ details.status }}</p>
-    <p>{{ details.tagline }}</p>
-    <p class="release_date">{{ details.release_date }}</p>
-    <p class="vote">{{ details.vote_average }}</p>
-    <p>{{ details.vote_count }}</p>
+<div *ngIf="details">
+  <ng-template [ngIf]="details.profile_path" [ngIfElse]="silhouette">
     <img
-      class="poster"
-      src="https://image.tmdb.org/t/p/w500/{{ details.poster_path }}"
+      class="person"
+      src="https://image.tmdb.org/t/p/w342/{{ details.profile_path }}"
       alt="{{ details.title }} poster"
     />
-    <p class="site">{{ details.overview }}</p>
-  </li>
-  <li *ngFor="let genre of details['genres']">
-    <p>{{ genre["name"] }}</p>
-  </li>
-</ul>
+  </ng-template>
+  <ng-template #silhouette>
+    <img
+      class="person"
+      src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
+      alt="silhouette of a person"
+    />
+  </ng-template>
+  <tbody>
+    <tr>
+      <td>
+        <h1>{{ details.name }}</h1>
+      </td>
+    </tr>
+    <tr *ngIf="details.known_for_department">
+      <td>Known for: {{ details.known_for_department }}</td>
+    </tr>
+    <td>Gender: {{ details.gender }}</td>
+    <tr *ngIf="details.death">
+      <td>Death: {{ details.death }}</td>
+    </tr>
+    <tr>
+      <td>Born: {{ details.birthday }}</td>
+    </tr>
+    <tr *ngIf="details.place_of_birth">
+      <td>Place of birth: {{ details.place_of_birth }}</td>
+    </tr>
+  </tbody>
+  <div *ngIf="details.biography">
+    <h2>Biography</h2>
+    <p>{{ details.biography }}</p>
+  </div>
+</div>

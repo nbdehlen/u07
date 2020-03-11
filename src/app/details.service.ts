@@ -13,10 +13,15 @@ export class DetailsService {
 
   constructor(private http: HttpClient) {}
 
-  getId(id, endpoint): any {
-    //Observable<any> {
+  getId(id, endpoint): Observable<any> {
     return this.http.get<any>(
       this.baseUrl + endpoint + id + PREFIXED_KEY + this.adult
+    );
+  }
+
+  getCred(id, endpoint, credits): Observable<any> {
+    return this.http.get<any>(
+      this.baseUrl + endpoint + id + credits + PREFIXED_KEY + this.adult
     );
   }
 }
