@@ -4,18 +4,18 @@
     <p class="title">{{ details.name }}</p>
     <p>{{ details.status }}</p>
     <p>{{ details.tagline }}</p>
-    <p class="release_date">{{ details.release_date }}</p>
+    <p class="release_date">Release Date: {{ details.release_date }}</p>
     <p class="vote">{{ details.vote_average }}</p>
-    <ng-template [ngIf]="details.poster_path" [ngIfElse]="noImage">
+    <ng-template [ngIf]="details.poster_path" [ngIfElse]="silhouette">
       <img
         class="poster"
         src="https://image.tmdb.org/t/p/w342/{{ details.poster_path }}"
         alt="{{ details.title }} poster"
       />
     </ng-template>
-    <ng-template #noImage>
+    <ng-template #silhouette>
       <img
-        class="person"
+        class="poster"
         src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
         alt="silhouette of a person"
       />
@@ -23,8 +23,11 @@
 
     <p class="site">{{ details.overview }}</p>
   </li>
-  <div *ngFor="let genre of details['genres']">
-    <p>{{ genre["name"] }}</p>
+  <div *ngIf="details['genres']">
+    <p><strong>Genres</strong></p>
+    <div *ngFor="let genre of details['genres']">
+      <p>{{ genre["name"] }}</p>
+    </div>
   </div>
   <div *ngIf="cred.cast">
     <p><strong>Actors</strong></p>
