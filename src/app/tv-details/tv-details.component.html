@@ -1,11 +1,10 @@
-<h1>Details</h1>
 <ul *ngIf="details">
-  <li>
-    <p class="title">{{ details.name }}</p>
-    <p>{{ details.status }}</p>
+  <div>
+    <h1 class="title">{{ details.name }}</h1>
+    <p *ngIf="details.status">Status: {{ details.status }}</p>
     <p>{{ details.tagline }}</p>
-    <p class="release_date">Release Date: {{ details.release_date }}</p>
-    <p class="vote">{{ details.vote_average }}</p>
+    <p class="release_date">First air Date: {{ details.first_air_date }}</p>
+    <p class="vote">Average Rating: {{ details.vote_average }}</p>
     <ng-template [ngIf]="details.poster_path" [ngIfElse]="silhouette">
       <img
         class="poster"
@@ -20,9 +19,11 @@
         alt="silhouette of a person"
       />
     </ng-template>
-
+    <br />
+    <br />
+    <h2>Plot</h2>
     <p class="site">{{ details.overview }}</p>
-  </li>
+  </div>
   <div *ngIf="details['genres']">
     <p><strong>Genres</strong></p>
     <div *ngFor="let genre of details['genres']">
