@@ -21,11 +21,11 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.handleId(id, this.endpoint);
+    this.getDetails(id, this.endpoint);
     this.getCred(id, this.endpoint, this.credits);
   }
 
-  handleId = (id, endpoint) => {
+  getDetails = (id, endpoint) => {
     this.detailsService.getId(id, endpoint).subscribe(data => {
       this.details = data;
       console.log(id);

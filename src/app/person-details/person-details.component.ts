@@ -17,10 +17,10 @@ export class PersonDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.handleId(id, this.endpoint);
+    this.getDetails(id, this.endpoint);
   }
 
-  handleId = (id, endpoint) => {
+  getDetails = (id, endpoint) => {
     this.detailsService.getId(id, endpoint).subscribe(data => {
       this.details = data;
       console.log(id);
