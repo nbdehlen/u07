@@ -12,8 +12,8 @@ export class TvDetailsComponent implements OnInit {
     private detailsService: DetailsService,
     private route: ActivatedRoute
   ) {}
-  details;
-  cred;
+  details; //obj?
+  cred; //obj?
   endpoint = "/tv/";
   credits = "/credits";
   showActorsAll = false;

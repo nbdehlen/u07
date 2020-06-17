@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "movie-details",
   templateUrl: "./movie-details.component.html",
-  styleUrls: ["./movie-details.component.scss"]
+  styleUrls: ["./movie-details.component.scss"],
 })
 export class MovieDetailsComponent implements OnInit {
   constructor(
@@ -26,7 +26,7 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   getDetails = (id, endpoint) => {
-    this.detailsService.getId(id, endpoint).subscribe(data => {
+    this.detailsService.getId(id, endpoint).subscribe((data) => {
       this.details = data;
       console.log(id);
       console.log(this.details);
@@ -34,7 +34,7 @@ export class MovieDetailsComponent implements OnInit {
   };
 
   getCred = (id, endpoint, credits) => {
-    this.detailsService.getCred(id, endpoint, credits).subscribe(cred => {
+    this.detailsService.getCred(id, endpoint, credits).subscribe((cred) => {
       this.cred = cred;
       console.log(this.cred);
       console.log(this.cred.cast.length);

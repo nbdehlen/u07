@@ -1,5 +1,5 @@
-<ul *ngIf="details">
-  <div>
+<div *ngIf="details" class="content-container">
+  <div class="content-container">
     <h1 class="title">{{ details.title }}</h1>
     <p *ngIf="details.tagline">{{ details.tagline }}</p>
     <p *ngIf="details.release_date">
@@ -10,7 +10,7 @@
     </p>
     <ng-template [ngIf]="details.poster_path" [ngIfElse]="silhouette">
       <img
-        class="poster"
+        class="details-img"
         src="https://image.tmdb.org/t/p/w500/{{ details.poster_path }}"
         alt="{{ details.title }} poster"
       />
@@ -18,14 +18,14 @@
 
     <ng-template #silhouette>
       <img
-        class="poster"
+        class="details-img"
         src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
         alt="silhouette of a person"
       />
     </ng-template>
     <br />
     <h2>Plot</h2>
-    <p>{{ details.overview }}</p>
+    <p class="text-spacing">{{ details.overview }}</p>
     <p class="site">Runtime: {{ details.runtime }} min</p>
   </div>
   <div *ngIf="details['genres']">
@@ -40,20 +40,22 @@
     <strong>Actors</strong>
   </p>
 
-  <div *ngIf="cred.cast.length > 9">
-    <div (click)="actorsToggle()" class="toggleBtn">
-      {{ actorsToggleBtn }}
-    </div>
-  </div>
+  
   <ng-template [ngIf]="!showActorsAll" [ngIfElse]="allActors">
-    <div *ngFor="let actor of cred.cast | slice: 0:10">
+    <p *ngFor="let actor of cred.cast | slice: 0:10">
       {{ actor.name }}
-    </div>
+    </p>
   </ng-template>
 
   <ng-template #allActors>
-    <div *ngFor="let actor of cred.cast">
+    <p *ngFor="let actor of cred.cast">
       {{ actor.name }}
-    </div>
+    </p>
   </ng-template>
-</ul>
+
+  <div *ngIf="cred.cast.length > 9">
+    <div (click)="actorsToggle()" class="toggle-btn">
+      {{ actorsToggleBtn }}
+    </div>
+  </div>
+</div>

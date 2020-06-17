@@ -33,13 +33,12 @@ ul {
   }
 }
 
-
 .title {
   font-size: 22px;
 
 }
 
-.release_date {
+.release-date {
   font-size: 14px;
 }
 
@@ -47,4 +46,26 @@ ul {
   font-size: 16px;
   font-weight: bold;
   color: red;
+}
+
+.trending-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.poster-container {
+  transition: all 1.2s ease-in-out; 
+
+  :hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 4px 0px white;
+  }
+}
+
+.poster {
+  height: 450px;
+  width: 300px;
+}
+
+.poster-link {
 }

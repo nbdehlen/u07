@@ -1,4 +1,4 @@
 /* Remove .example from the filename and add an API key for TMDB */
-const API_PREFIX: string = "?api_key=";
-const API_KEY: string = "";
-export const PREFIXED_KEY: string = API_PREFIX + API_KEY;
+const API_PREFIX = "?api_key=";
+const API_KEY = "";
+export const PREFIXED_KEY = API_PREFIX + API_KEY;

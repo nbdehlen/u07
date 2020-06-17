@@ -1,20 +1,20 @@
-<ul *ngIf="details">
-  <div>
+<div *ngIf="details">
+  <div class="content-container">
     <h1 class="title">{{ details.name }}</h1>
     <p *ngIf="details.status">Status: {{ details.status }}</p>
     <p>{{ details.tagline }}</p>
-    <p class="release_date">First air Date: {{ details.first_air_date }}</p>
+    <p class="release-date">First air Date: {{ details.first_air_date }}</p>
     <p class="vote">Average Rating: {{ details.vote_average }}</p>
     <ng-template [ngIf]="details.poster_path" [ngIfElse]="silhouette">
       <img
-        class="poster"
+        class="details-img"
         src="https://image.tmdb.org/t/p/w342/{{ details.poster_path }}"
         alt="{{ details.title }} poster"
       />
     </ng-template>
     <ng-template #silhouette>
       <img
-        class="poster"
+        class="details-img"
         src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
         alt="silhouette of a person"
       />
@@ -22,7 +22,7 @@
     <br />
     <br />
     <h2>Plot</h2>
-    <p class="site">{{ details.overview }}</p>
+    <p class="text-spacing">{{ details.overview }}</p>
   </div>
   <div *ngIf="details['genres']">
     <p><strong>Genres</strong></p>
@@ -32,8 +32,8 @@
   </div>
   <div *ngIf="cred.cast">
     <p><strong>Actors</strong></p>
-    <div *ngFor="let actor of cred.cast">
+    <p *ngFor="let actor of cred.cast">
       {{ actor.name }}
-    </div>
+    </p>
   </div>
-</ul>
+</div>

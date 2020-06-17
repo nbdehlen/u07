@@ -1,14 +1,14 @@
-<div *ngIf="details">
+<div class="content-container" *ngIf="details">
   <ng-template [ngIf]="details.profile_path" [ngIfElse]="silhouette">
     <img
-      class="person"
+      class="details-img"
       src="https://image.tmdb.org/t/p/w342/{{ details.profile_path }}"
       alt="{{ details.title }} poster"
     />
   </ng-template>
   <ng-template #silhouette>
     <img
-      class="person"
+      class="details-img"
       src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
       alt="silhouette of a person"
     />
@@ -20,21 +20,21 @@
       </td>
     </tr>
     <tr *ngIf="details.known_for_department">
-      <td>Known for: {{ details.known_for_department }}</td>
+      <td> <p>Known for: {{ details.known_for_department }}</p> </td>
     </tr>
-    <td>Gender: {{ details.gender }}</td>
+    <td> <p> Gender: {{ details.gender }}</p></td>
     <tr *ngIf="details.death">
-      <td>Death: {{ details.death }}</td>
+      <td> <p>Death: {{ details.death }}</p> </td>
     </tr>
     <tr>
-      <td>Born: {{ details.birthday }}</td>
+      <td> <p>Born: {{ details.birthday }}</p> </td>
     </tr>
     <tr *ngIf="details.place_of_birth">
-      <td>Place of birth: {{ details.place_of_birth }}</td>
+      <td> <p>Place of birth: {{ details.place_of_birth }}</p> </td>
     </tr>
   </tbody>
   <div *ngIf="details.biography">
     <h2>Biography</h2>
-    <p>{{ details.biography }}</p>
+    <p class="text-spacing">{{ details.biography }}</p>
   </div>
 </div>

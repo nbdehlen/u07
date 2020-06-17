@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-person-details",
   templateUrl: "./person-details.component.html",
-  styleUrls: ["./person-details.component.scss"]
+  styleUrls: ["./person-details.component.scss"],
 })
 export class PersonDetailsComponent implements OnInit {
   constructor(
@@ -21,7 +21,7 @@ export class PersonDetailsComponent implements OnInit {
   }
 
   getDetails = (id, endpoint) => {
-    this.detailsService.getId(id, endpoint).subscribe(data => {
+    this.detailsService.getId(id, endpoint).subscribe((data) => {
       this.details = data;
       console.log(id);
       console.log(this.details);

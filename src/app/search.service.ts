@@ -9,13 +9,13 @@ import { PREFIXED_KEY } from "api_key";
 })
 export class SearchService {
   baseUrl = "https://api.themoviedb.org/3";
-  endpoint;
+  endpoint: string;
   queryPrefix = "&query=";
   adult = "&include_adult=false";
 
   constructor(private http: HttpClient) {}
 
-  getMovie(query, searchOption): Observable<any> {
+  fetchData(query: string, searchOption: string): Observable<any> {
     switch (searchOption) {
       case "All":
         this.endpoint = "/search/multi";

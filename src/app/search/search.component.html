@@ -33,7 +33,7 @@
         <td>
           <ng-template [ngIf]="search.poster_path" [ngIfElse]="silhouette">
             <img
-              class="searchImg"
+              class="search-img"
               src="https://image.tmdb.org/t/p/w45/{{ search.poster_path }}"
               alt="No image"
             />
@@ -41,7 +41,7 @@
 
           <ng-template #silhouette>
             <img
-              class="searchImg"
+              class="search-img"
               src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
               alt="silhouette of a person"
             />
@@ -55,8 +55,8 @@
           {{ search.release_date | date: "yyyy" }}
         </td>
 
-        <td class="voteAvg">{{ search.vote_average }}</td>
-        <td class="mediaType">{{ search.media_type | titlecase }}</td>
+        <td class="vote-avg">{{ search.vote_average }}</td>
+        <td class="media-type">{{ search.media_type | titlecase }}</td>
         <td></td>
       </tr>
     </div>
@@ -66,14 +66,14 @@
         <td>
           <ng-template [ngIf]="search.poster_path" [ngIfElse]="silhouette">
             <img
-              class="searchImg"
+              class="search-img"
               src="https://image.tmdb.org/t/p/w45/{{ search.poster_path }}"
               alt="No image"
             />
           </ng-template>
           <ng-template #silhouette>
             <img
-              class="searchImg"
+              class="search-img"
               src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
               alt="silhouette of a person"
             />
@@ -87,8 +87,8 @@
           {{ search.first_air_date | date: "yyyy" }}
         </td>
 
-        <td class="voteAvg">{{ search.vote_average }}</td>
-        <td class="mediaType">{{ search.media_type | titlecase }}</td>
+        <td class="vote-avg">{{ search.vote_average }}</td>
+        <td class="media-type">{{ search.media_type | titlecase }}</td>
         <td></td>
       </tr>
     </div>
@@ -98,14 +98,14 @@
         <td>
           <ng-template [ngIf]="search.profile_path" [ngIfElse]="silhouette">
             <img
-              class="searchImg"
+              class="search-img"
               src="https://image.tmdb.org/t/p/w45/{{ search.profile_path }}"
               alt="No image"
             />
           </ng-template>
           <ng-template #silhouette>
             <img
-              class="searchImg"
+              class="search-img"
               src="https://cdn.pixabay.com/photo/2012/04/11/16/17/thinker-28741_960_720.png"
               alt="silhouette of a person"
             />

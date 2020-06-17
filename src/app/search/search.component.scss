@@ -1,7 +1,41 @@
-.searchImg {
+.search-img {
   width: 45px;
 }
 
 td {
   padding: 4px;
+}
+
+.search-option {
+  background-color: rgba(24,26,27);
+  border-color: rgba(54,63,72);
+  color: white;
+}
+
+.form-control {
+  background-color: rgba(24,26,27);
+  border-color: rgba(54,63,72);
+  color: white;
+
+  // :focus {
+  //   background: #005ccc;
+  // }
+
+  :hover {
+    background: #005ccc;
+  }
+}
+
+#searchOptions {
+  background-color: rgba(24,26,27);
+  color: white;
+}
+
+#searchOptions::selection {
+  background-color: #005ccc;
+}
+
+form > div > input  {
+  background-color: rgba(24,26,27);
+  color: white;
 }
