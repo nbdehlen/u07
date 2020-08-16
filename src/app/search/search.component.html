@@ -22,7 +22,7 @@
       required
       [(ngModel)]="searchInput"
     />
-    <button type="submit">Search</button>
+    <button type="submit" class="btn-submit">Search</button>
   </div>
 </form>
 
@@ -52,11 +52,11 @@
           <a routerLink="/movie/{{ search.id }}">
             {{ search.title }}
           </a>
-          {{ search.release_date | date: "yyyy" }}
+          <p class="release-date">{{ search.release_date | date: "yyyy" }}</p>
         </td>
 
-        <td class="vote-avg">{{ search.vote_average }}</td>
-        <td class="media-type">{{ search.media_type | titlecase }}</td>
+        <!-- <td class="vote-avg">{{ search.vote_average }}</td> -->
+        <!-- <td class="media-type">{{ search.media_type | titlecase }}</td> -->
         <td></td>
       </tr>
     </div>
@@ -84,11 +84,11 @@
           <a routerLink="/tv/{{ search.id }}">
             {{ search.name }}
           </a>
-          {{ search.first_air_date | date: "yyyy" }}
+          <p class="releaste-date">{{ search.first_air_date | date: "yyyy" }}</p>
         </td>
 
-        <td class="vote-avg">{{ search.vote_average }}</td>
-        <td class="media-type">{{ search.media_type | titlecase }}</td>
+        <!-- <td class="vote-avg"> <p>{{ search.vote_average }}</p> </td> -->
+        <!-- <td class="media-type"> <p>{{ search.media_type | titlecase }}</p> </td> -->
         <td></td>
       </tr>
     </div>
@@ -117,7 +117,7 @@
             {{ search.name }}
           </a>
         </td>
-        <td>{{ search.media_type | titlecase }}</td>
+        <td> <p>{{ search.media_type | titlecase }}</p> </td>
       </tr>
     </div>
   </tbody>

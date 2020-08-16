@@ -46,6 +46,7 @@ header {
 
   a.logo {
     font-weight: bold;
+    padding: 1em;
   }
 
   nav {
@@ -69,7 +70,8 @@ header {
 }
 
 h1, h2 {
-  margin-top: 1em !important;
+  margin-top: 0.5rem !important;
+  line-height: 1.5 !important;
   color: $white;
 }
 
@@ -84,7 +86,7 @@ h1, h2 {
 }
 
 .content-container {
-  margin-top: 20px;
+  // margin-top: 20px;
   
 }
 
@@ -93,6 +95,9 @@ h1, h2 {
   width: 100%;
 }
 
+.release-date {
+  color: white;
+}
 
 @media only screen and (max-width: '450px') {
   .content-container {
